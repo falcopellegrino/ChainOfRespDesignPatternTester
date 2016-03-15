@@ -43,9 +43,21 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealWorldCode\VicePresident.cs" />
+    <Compile Include="RealWorldCode\President.cs" />
+    <Compile Include="RealWorldCode\Director.cs" />
+    <Compile Include="RealWorldCode\Approver.cs" />
+    <Compile Include="RealWorldCode\Purchase.cs" />
+    <Compile Include="StructuralCode\ConcreteHandler3.cs" />
+    <Compile Include="StructuralCode\ConcreteHandler2.cs" />
+    <Compile Include="StructuralCode\ConcreteHandler1.cs" />
+    <Compile Include="StructuralCode\Handler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MyCode\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
