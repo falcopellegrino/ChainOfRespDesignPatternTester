@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Structural = ChainOfRespDesignPatternTester.StructuralCode;
 using Real = ChainOfRespDesignPatternTester.RealWorldCode;
+using My = ChainOfRespDesignPatternTester.MyCode;
 
 namespace ChainOfRespDesignPatternTester
 {
@@ -56,6 +57,8 @@ namespace ChainOfRespDesignPatternTester
             #endregion
 
             #region Real-world code in C#
+            Console.WriteLine("");
+
             // Real-world code in C#
             // This real-world code demonstrates the Chain of Responsibility pattern in which several linked managers
             // and executives can respond to a purchase request or hand it off to a superior.
@@ -78,6 +81,35 @@ namespace ChainOfRespDesignPatternTester
 
             p = new Real.Purchase(2036, 122100.00, "Project Y");
             larry.ProcessRequest(p);
+
+            // Wait for user
+            Console.ReadKey();
+            #endregion
+
+            #region My code in C#
+            Console.WriteLine("");
+
+            // Setup chain of responsibility
+            My.Esaminatore maestroElementare = new My.MaestroElementare();
+            My.Esaminatore professoreDelleMedie = new My.ProfessoreDelleMedie();
+            My.Esaminatore professoreDelleSuperiori = new My.ProfessoreDelleSuperiori();
+            My.Esaminatore professoreUniversitario = new My.ProfessoreUniversitario();
+
+            maestroElementare.setEsaminatoreSuperiore(professoreDelleMedie);
+            professoreDelleMedie.setEsaminatoreSuperiore(professoreDelleSuperiori);
+            professoreDelleSuperiori.setEsaminatoreSuperiore(professoreUniversitario);
+
+            My.Esame e = new My.Esame(My.TipoDiStudente.ScolaroDelleScuoleElementari, "Mario di anni 11");
+            maestroElementare.EffettuaEsameAlloStudente(e);
+
+            e = new My.Esame(My.TipoDiStudente.StudenteDelleScuoleMedieInferiori, "Luigi di anni 14");
+            maestroElementare.EffettuaEsameAlloStudente(e);
+
+            e = new My.Esame(My.TipoDiStudente.StudenteDelleScuoleMedieSuperiori, "Gianni di anni 19");
+            maestroElementare.EffettuaEsameAlloStudente(e);
+
+            e = new My.Esame(My.TipoDiStudente.StudenteUniversitario, "Stefano di anni 24");
+            maestroElementare.EffettuaEsameAlloStudente(e);
 
             // Wait for user
             Console.ReadKey();

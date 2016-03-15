@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ChainOfRespDesignPatternTester.RealWorldCode
 {
     /// <summary>
-    /// The 'ConcreteHandler2' class
+    /// The 'ConcreteHandler1' class
     /// </summary>
     class Director : Approver
     {
